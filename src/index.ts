@@ -1,0 +1,6 @@
+export { EzcordClient } from './classes/EzcordClient'
+export { Command } from './classes/Command'
+export { StatusOptions } from './interfaces/StatusOptions'
+export { Embed } from './classes/Embed'
+export { EmbedField } from './interfaces/EmbedField'
+export { EmbedAuthor } from './interfaces/EmbedAuthor'
