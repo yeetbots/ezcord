@@ -1,7 +1,7 @@
-import { EventEmitter } from "events";
-import { Client, User, Message } from "discord.js";
-import { StatusOptions } from './interfaces/StatusOptions'
-import { Embed } from './classes/Embed'
+const { EventEmitter } = require('events');
+const { Client, User, Message } = require('discord.js');
+const { StatusOptions } = require('./interfaces/StatusOptions');
+const { Embed } = require('./classes/Embed');
 
 declare module 'ezcord' {
     class EzcordClient extends EventEmitter {

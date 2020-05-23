@@ -1,8 +1,8 @@
 /** Represents a field in an embed. 
  * @interface
 */
-interface EmbedField {
-    name: String
+const EmbedField = {
+    name: String,
     value: String
 }
-export { EmbedField }
+exports.EmbedField = EmbedField

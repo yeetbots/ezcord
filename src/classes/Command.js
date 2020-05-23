@@ -1,6 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Command = void 0;
+const { User, Message } = require('discord.js')
+const { EzcordClient } = require('./EzcordClient')
+const { Embed } = require('./Embed')
+
 /**
  * @class
  * Class representing a bot command.
@@ -13,24 +14,24 @@ class Command {
      * @param {EzcordClient} bot The client that instansiated this.
      */
     constructor(msg, bot) {
-        var _a;
         /** The author of the message.
          * @memberof Command
          */
-        this.author = msg.author;
+        this.author = msg.author
         /** The args provided.
          * @memberof Command
          */
-        this.args = msg.content.slice(bot.prefix.length).split(/ +/);
+        this.args = msg.content.slice(bot.prefix.length).split(/ +/)
         /** The command provided.
          * @memberof Command
          */
-        this.cmd = (_a = this.args.shift()) === null || _a === void 0 ? void 0 : _a.toLowerCase();
+        // @ts-ignore
+        this.cmd = this.args.shift().toLowerCase()
         /** The whol
          * e message as a Message object.
          * @memberof Command
          */
-        this.msg = msg;
+        this.msg = msg
     }
     /**
      * Responds to a command.
@@ -39,12 +40,14 @@ class Command {
      * @param {Embed} [embed] The message embed to send
      */
     respond(content, embed) {
-        if (embed) {
-            this.msg.channel.send(content, embed.djs);
-        }
-        else {
-            this.msg.channel.send(content);
+        if(embed) {
+            this.msg.channel.send(content, embed.djs)
+        } else {
+            this.msg.channel.send(content)
         }
     }
+
+
 }
-exports.Command = Command;
+
+exports.Command = Command

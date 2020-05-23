@@ -2,7 +2,7 @@
   "name": "ezcord",
   "version": "2.7.8",
   "description": "Make a discord bot easily",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@types/events": "^3.0.0",
+    "@types/node": "^12.12.31",
     "discord.js": "^12.2.0"
   }
 }

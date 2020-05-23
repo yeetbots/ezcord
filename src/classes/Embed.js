@@ -1,9 +1,12 @@
-import { MessageEmbed } from 'discord.js'
-import { EmbedField } from '../interfaces/EmbedField'
-import { EmbedAuthor } from '../interfaces/EmbedAuthor'
+const { MessageEmbed } = require('discord.js')
+const { EmbedField } = require('../interfaces/EmbedField')
+const { EmbedAuthor } = require('../interfaces/EmbedAuthor')
 /**
  * A field of an embed.
- * @typedef EmbedField
+ * @typedef {{
+    name: String,
+    value: String
+   }} EmbedField
  * @memberof Embed
  * @type {Object}
  * @property {string} name Name of the field.
@@ -11,7 +14,10 @@ import { EmbedAuthor } from '../interfaces/EmbedAuthor'
  */
 /**
  * The author (name and pfp) at the top of an embed.
- * @typedef EmbedAuthor
+ * @typedef {{
+    name: String,
+    pfp: String
+   }}
  * @memberof Embed
  * @type {Object}
  * @property {string} [name] The name of the author.
@@ -22,12 +28,6 @@ import { EmbedAuthor } from '../interfaces/EmbedAuthor'
  * Represents an embed.
 */
 class Embed {
-    title: string
-    description: string
-    author?: EmbedAuthor
-    thumbnail: string
-    fields: Array<EmbedField>
-    djs: MessageEmbed
     /** 
      * Create an embed
      * @constructor
@@ -48,13 +48,18 @@ class Embed {
         /** The embed's author.
          * @memberof Embed
          */
-        this.author
+        this.author = {
+            name: '',
+            url: ''
+        }
         /** The embed's thumbnail URL.
          * @memberof Embed
          */
         this.thumbnail = ''
-        /** The embed's fields.
+        /**
+         * The embed's fields.
          * @memberof Embed
+         * @type {EmbedField[]}
          */
         this.fields = []
 
@@ -65,7 +70,7 @@ class Embed {
      * @param {String} title The title of the embed.
      * @returns {Embed} The new embed.
      */
-    sTitle(title: string): Embed {
+    sTitle(title) {
         this.djs.setTitle(title)
         this.title = title
         return this
@@ -76,7 +81,7 @@ class Embed {
      * @param {String} desc The description of the embed.
      * @returns {Embed} The new embed.
      */
-    sDescription(desc: string): Embed {
+    sDescription(desc) {
         this.djs.setDescription(desc)
         this.description = desc
         return this
@@ -87,7 +92,7 @@ class Embed {
      * @param {Array<EmbedField>} fields The title of the embed.
      * @returns {Embed} The new embed.
      */
-    sFields(fields: Array<EmbedField>): Embed {
+    sFields(fields) {
         for(var field of fields) {
             this.djs.addField(field.name, field.value)
             this.fields.push(field)
@@ -97,4 +102,4 @@ class Embed {
 
 
 }
-export { Embed }
+exports.Embed = Embed
