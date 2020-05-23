@@ -27,6 +27,7 @@ const { EmbedAuthor } = require('../interfaces/EmbedAuthor')
  * @class
  * Represents an embed.
 */
+// @ts-ignore
 class Embed {
     /** 
      * Create an embed
