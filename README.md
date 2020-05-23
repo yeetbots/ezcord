@@ -7,7 +7,7 @@ const { EzcordClient } = require('ezcord');
 const bot = new EzcordClient('token', 'prefix');
 bot.on('command', (command) => {
     if(command.cmd === 'ping') {
-        command.msg.reply('Pong!');
+        command.respond('Pong!');
     };
 });
 bot.connect();
