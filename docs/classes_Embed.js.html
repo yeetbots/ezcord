@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>classes/Embed.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,41 +29,123 @@
 
 <div id="main">
     
+    <h1 class="page-title">classes/Embed.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const { MessageEmbed } = require('discord.js')
+const { EmbedField } = require('../interfaces/EmbedField')
+const { EmbedAuthor } = require('../interfaces/EmbedAuthor')
+/**
+ * A field of an embed.
+ * @typedef {{
+    name: String,
+    value: String
+   }} EmbedField
+ * @memberof Embed
+ * @type {Object}
+ * @property {string} name Name of the field.
+ * @property {string} value Value of the field.
+ */
+/**
+ * The author (name and pfp) at the top of an embed.
+ * @typedef {{
+    name: String,
+    pfp: String
+   }}
+ * @memberof Embed
+ * @type {Object}
+ * @property {string} [name] The name of the author.
+ * @property {string} [url] The url to the author's PFP.
+ */
+/** 
+ * @class
+ * Represents an embed.
+*/
+class Embed {
+    /** 
+     * Create an embed
+     * @constructor
+     */
+    constructor() {
+        /** The embed as a MessageEmbed.
+         * @memberof Embed
+         */
+        this.djs = new MessageEmbed()
+        /** The embed's title.
+         * @memberof Embed
+         */
+        this.title = ''
+        /** The embed's description.
+         * @memberof Embed
+         */
+        this.description = ''
+        /** The embed's author.
+         * @memberof Embed
+         */
+        this.author = {
+            name: '',
+            url: ''
+        }
+        /** The embed's thumbnail URL.
+         * @memberof Embed
+         */
+        this.thumbnail = ''
+        /**
+         * The embed's fields.
+         * @memberof Embed
+         * @type {EmbedField[]}
+         */
+        this.fields = []
 
-
-
-
-
-
-
-
-
+    }
     
+    /**
+     * Sets the title of the embed.
+     * @param {String} title The title of the embed.
+     * @returns {Embed} The new embed.
+     */
+    sTitle(title) {
+        this.djs.setTitle(title)
+        this.title = title
+        return this
+    }
+    /**
+     * Sets the description of the embed.
+     * @memberof Embed
+     * @param {String} desc The description of the embed.
+     * @returns {Embed} The new embed.
+     */
+    sDescription(desc) {
+        this.djs.setDescription(desc)
+        this.description = desc
+        return this
+    }
+    /**
+     * Sets the fields of the embed.
+     * @memberof Embed
+     * @param {Array&lt;EmbedField>} fields The title of the embed.
+     * @returns {Embed} The new embed.
+     */
+    sFields(fields) {
+        for(var field of fields) {
+            this.djs.addField(field.name, field.value)
+            this.fields.push(field)
+        }
+        return this
+    }
 
 
-    <section class="readme">
-        <article><h1>EzCord</h1>
-<p><a href="https://nodei.co/npm/ezcord/"><img src="https://nodei.co/npm/ezcord.png" alt="NPM"></a></p>
-<h2>Example usage:</h2>
-<pre class="prettyprint source lang-js"><code>const { EzcordClient } = require('ezcord');
-const bot = new EzcordClient('token', 'prefix');
-bot.on('command', (command) => {
-    if(command.cmd === 'ping') {
-        command.msg.reply('Pong!');
-    };
-});
-bot.connect();
-</code></pre>
-<p>EzCord is a quick and easy way for you to develop a discord bot.</p></article>
+}
+exports.Embed = Embed</code></pre>
+        </article>
     </section>
-
-
 
 
 

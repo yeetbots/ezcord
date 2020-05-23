@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>interfaces/StatusOptions.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,41 +29,27 @@
 
 <div id="main">
     
+    <h1 class="page-title">interfaces/StatusOptions.js</h1>
+    
 
     
 
 
 
     
-
-
-
-
-
-
-
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>EzCord</h1>
-<p><a href="https://nodei.co/npm/ezcord/"><img src="https://nodei.co/npm/ezcord.png" alt="NPM"></a></p>
-<h2>Example usage:</h2>
-<pre class="prettyprint source lang-js"><code>const { EzcordClient } = require('ezcord');
-const bot = new EzcordClient('token', 'prefix');
-bot.on('command', (command) => {
-    if(command.cmd === 'ping') {
-        command.msg.reply('Pong!');
-    };
-});
-bot.connect();
-</code></pre>
-<p>EzCord is a quick and easy way for you to develop a discord bot.</p></article>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Options for a status.
+ * @interface
+ */
+const StatusOptions = {
+    streamingUrl: String,
+    statusType: 'WATCHING' || 'PLAYING' || 'LISTENING' || 'STREAMING'
+}
+exports.StatusOptions = StatusOptions</code></pre>
+        </article>
     </section>
-
-
 
 
 

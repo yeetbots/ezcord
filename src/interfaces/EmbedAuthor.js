@@ -1,5 +1,5 @@
 /** 
- * @interface
+ * @interface EmbedAuthor
  * Represents the author property of an embed.
  */
 const EmbedAuthor = {
