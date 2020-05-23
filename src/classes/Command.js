@@ -1,5 +1,5 @@
 const { User, Message } = require('discord.js')
-const { EzcordClient } = require('./EzcordClient')
+const EzcordClient = require('./EzcordClient')
 const { Embed } = require('./Embed')
 
 /**
@@ -21,6 +21,7 @@ class Command {
         /** The args provided.
          * @memberof Command
          */
+        // @ts-ignore
         this.args = msg.content.slice(bot.prefix.length).split(/ +/)
         /** The command provided.
          * @memberof Command
