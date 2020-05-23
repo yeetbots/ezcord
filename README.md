@@ -1,5 +1,6 @@
 # EzCord
 [![NPM](https://nodei.co/npm/ezcord.png)](https://nodei.co/npm/ezcord/)
+Hello everyone, we understand the issues that we are having at the moment. You can downgrade to 2.7.8 to fix this.
 ## Example usage:
 ```js
 const { EzcordClient } = require('ezcord');
