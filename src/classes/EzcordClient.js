@@ -79,4 +79,4 @@ class EzcordClient extends EventEmitter {
     }
     
 }
-exports = EzcordClient
+exports.EzcordClient = EzcordClient

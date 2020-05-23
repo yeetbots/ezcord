@@ -1,8 +1,12 @@
-module.exports = {
-    EzcordClient: require('./classes/EzcordClient'),
-    Command: require('./classes/Command'),
-    StatusOptions: require('./interfaces/StatusOptions'),
-    Embed: require('./classes/Embed'),
-    EmbedField: require('./interfaces/EmbedField'),
-    EmbedAuthor: require('./interfaces/EmbedAuthor')
-}
+const { EzcordClient } = require('./classes/EzcordClient')
+module.exports.EzcordClient = EzcordClient
+const { Command } = require('./classes/Command')
+module.exports.Command = Command
+const { Embed } = require('./classes/Embed')
+module.exports.Embed = Embed
+const { EmbedAuthor } = require('./interfaces/EmbedAuthor')
+module.exports.EmbedAuthor = EmbedAuthor
+const { EmbedField } = require('./interfaces/EmbedField')
+module.exports.EmbedField = EmbedField
+const { StatusOptions } = require('./interfaces/StatusOptions')
+module.exports.StatusOptions = StatusOptions
