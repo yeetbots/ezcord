@@ -1,6 +1,6 @@
 {
   "name": "ezcord",
-  "version": "2.7.8",
+  "version": "3.0.0",
   "description": "Make a discord bot easily",
   "main": "src/index.js",
   "scripts": {
