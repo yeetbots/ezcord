@@ -68,6 +68,6 @@
   },
   "exclude": [
     "node_modules",
-    "src/index.d.ts"
+    "dist/index.d.ts"
   ]
 }
