@@ -8,7 +8,7 @@ declare module 'ezcord' {
         client: Client
         token: string
         prefix: string
-        constructor(token: string, prefix: string)
+        constructor(token: string, prefix: string): EzcordClient
         connect(): void
         setStatus(status: string, options?: StatusOptions): void
     }
