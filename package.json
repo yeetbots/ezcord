@@ -2,7 +2,7 @@
   "name": "ezcord",
   "version": "3.0.2",
   "description": "Make a discord bot easily",
-  "main": "dist/index.js",
+  "main": "srx/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
