@@ -1,7 +1,6 @@
 const { Client } = require('discord.js')
 const { EventEmitter } = require('events')
 const { Command } = require('./Command')
-const { StatusOptions } = require('../interfaces/StatusOptions')
 
 /**
  * @class
@@ -22,13 +21,19 @@ class EzcordClient extends EventEmitter {
         const bot = new Client()
         super()
         /** The discord.js client.
-         * @memberof EzcordClient */
+         * @memberof EzcordClient
+         * @type {Client}
+         */
         this.client = bot
         /** The bot's token.
-         * @memberof EzcordClient */
+         * @memberof EzcordClient
+         * @type {String}
+         */
         this.token = token
         /** The bot's prefix.
-         * @memberof EzcordClient */
+         * @memberof EzcordClient
+         * @type {String}
+         */
         this.prefix = prefix
         this.client.on('message', (msg) => {
             if(!msg.content.startsWith(this.prefix) || msg.author.bot || msg.channel.type === 'dm') return;

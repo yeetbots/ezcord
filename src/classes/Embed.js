@@ -1,6 +1,4 @@
 const { MessageEmbed } = require('discord.js')
-const { EmbedField } = require('../interfaces/EmbedField')
-const { EmbedAuthor } = require('../interfaces/EmbedAuthor')
 /**
  * A field of an embed.
  * @typedef {{
@@ -11,17 +9,6 @@ const { EmbedAuthor } = require('../interfaces/EmbedAuthor')
  * @type {Object}
  * @property {string} name Name of the field.
  * @property {string} value Value of the field.
- */
-/**
- * The author (name and pfp) at the top of an embed.
- * @typedef {{
-    name: String,
-    pfp: String
-   }}
- * @memberof Embed
- * @type {Object}
- * @property {string} [name] The name of the author.
- * @property {string} [url] The url to the author's PFP.
  */
 /** 
  * @class
@@ -36,25 +23,22 @@ class Embed {
     constructor() {
         /** The embed as a MessageEmbed.
          * @memberof Embed
+         * @type {MessageEmbed}
          */
         this.djs = new MessageEmbed()
         /** The embed's title.
          * @memberof Embed
+         * @type {String}
          */
         this.title = ''
         /** The embed's description.
          * @memberof Embed
+         * @type {String}
          */
         this.description = ''
-        /** The embed's author.
-         * @memberof Embed
-         */
-        this.author = {
-            name: '',
-            url: ''
-        }
         /** The embed's thumbnail URL.
          * @memberof Embed
+         * @type {String}
          */
         this.thumbnail = ''
         /**
@@ -90,7 +74,7 @@ class Embed {
     /**
      * Sets the fields of the embed.
      * @memberof Embed
-     * @param {Array<EmbedField>} fields The title of the embed.
+     * @param {EmbedField[]} fields The title of the embed.
      * @returns {Embed} The new embed.
      */
     sFields(fields) {
