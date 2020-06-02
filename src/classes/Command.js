@@ -17,7 +17,7 @@ class Command {
         /** The author of the message.
          * @memberof Command
          */
-        this.author = msg.author
+        this.sender = msg.author
         /** The args provided.
          * @memberof Command
          */
