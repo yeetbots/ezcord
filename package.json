@@ -3,6 +3,7 @@
   "version": "4.2.0",
   "description": "Make a discord bot easily",
   "main": "src/index",
+  "types": "typings/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

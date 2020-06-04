@@ -28,8 +28,7 @@ class Command {
          */
         // @ts-ignore
         this.cmd = this.args.shift().toLowerCase()
-        /** The whol
-         * e message as a Message object.
+        /** The whole message as a Message object.
          * @memberof Command
          */
         this.msg = msg
@@ -42,9 +41,9 @@ class Command {
      */
     respond(content, embed) {
         if(embed) {
-            this.msg.channel.send(content, embed.djs)
+            return this.msg.channel.send(content, embed.djs)
         } else {
-            this.msg.channel.send(content)
+            return this.msg.channel.send(content)
         }
     }
 

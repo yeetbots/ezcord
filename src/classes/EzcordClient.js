@@ -77,7 +77,7 @@ class EzcordClient extends EventEmitter {
         if(!options) {
             return this.client.user.setActivity(status)
         }
-        this.client.user.setActivity(status, {
+        return this.client.user.setActivity(status, {
             type: options.statusType,
             url: options.streamingUrl
         })
