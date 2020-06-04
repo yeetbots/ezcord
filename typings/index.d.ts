@@ -9,7 +9,7 @@ declare module 'ezcord' {
         connect(): void
         setStatus(status: String, options?: {
             statusType: 'WATCHING' | 'PLAYING' | 'LISTENING' | 'STREAMING',
-            streamingUrl: string
+            streamingUrl?: string
         }): Promise<Presence>
     }
     class Command {
