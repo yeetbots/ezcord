@@ -22,7 +22,7 @@ declare module 'ezcord' {
         cmd: string
         msg: Message
         constructor(msg: Message, bot: EzcordClient)
-        respond(content: string, embed: Embed): Message
+        respond(content: string, embed: Embed): Promise<Message>
     }
     class Embed {
         djs: MessageEmbed
