@@ -1,6 +1,12 @@
 declare module 'ezcord' {
     import { EventEmitter } from "events";
     import { Client, Presence, User, Message, MessageEmbed } from "discord.js";
+    enum StatusTypes {
+        playing = 'PLAYING',
+        watching = 'WATCHING',
+        listening = 'LISTENING',
+        streaming = 'STREAMING'
+    }
     class EzcordClient extends EventEmitter {
         client: Client
         token: string
@@ -8,9 +14,13 @@ declare module 'ezcord' {
         constructor(token: string, prefix: string)
         connect(): void
         setStatus(status: String, options?: {
-            statusType: 'WATCHING' | 'PLAYING' | 'LISTENING' | 'STREAMING',
+            statusType: StatusTypes,
             streamingUrl?: string
         }): Promise<Presence>
+
+        on<K extends keyof ClientEvents>(event: K, listener: (...args: ClientEvents[K]) => void): this;
+        once<K extends keyof ClientEvents>(event: K, listener: (...args: ClientEvents[K]) => void): this;
+        emit<K extends keyof ClientEvents>(event: K, ...args: ClientEvents[K]): boolean;
     }
     class Command {
         sender: User
@@ -30,5 +40,10 @@ declare module 'ezcord' {
         sTitle(title: string): Embed
         sDescription(desc: string): Embed
         sFields(fields: Array<{ name: string, value: string }>): Embed
+    }
+    interface ClientEvents {
+        ready: []
+        command: [Command]
+        debug: [string]
     }
 }

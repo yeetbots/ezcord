@@ -36,12 +36,17 @@ class EzcordClient extends EventEmitter {
          */
         this.prefix = prefix
         this.client.on('message', (msg) => {
-            if(!msg.content.startsWith(this.prefix) || msg.author.bot || msg.channel.type === 'dm') return;
+            if(msg.author.bot) return;
+            this.emit('debug', `Message sent by user ${msg.author.tag}`)
+            if(!msg.content.startsWith(this.prefix) || msg.channel.type === 'dm') return;
+            this.emit('debug', `${this.prefix}${new Command(msg, this).cmd} command sent`)
             this.emit('command', new Command(msg, this))
         })
         this.client.on('ready', () => {
+            this.emit('debug', 'Logging in with Discord.js...')
             this.emit('ready')
-            console.log('ready')
+            this.emit('debug', 'Bot logged in!')
+            console.log('Ready')
         })
         
 
