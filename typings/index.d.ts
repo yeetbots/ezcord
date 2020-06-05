@@ -1,12 +1,6 @@
 declare module 'ezcord' {
     import { EventEmitter } from "events";
     import { Client, Presence, User, Message, MessageEmbed } from "discord.js";
-    enum StatusTypes {
-        playing = 'PLAYING',
-        watching = 'WATCHING',
-        listening = 'LISTENING',
-        streaming = 'STREAMING'
-    }
     class EzcordClient extends EventEmitter {
         client: Client
         token: string
@@ -14,7 +8,7 @@ declare module 'ezcord' {
         constructor(token: string, prefix: string)
         connect(): void
         setStatus(status: String, options?: {
-            statusType: StatusTypes,
+            statusType: 'WATCHING' | 'PLAYING' | 'LISTENING' | 'STREAMING',
             streamingUrl?: string
         }): Promise<Presence>
 
