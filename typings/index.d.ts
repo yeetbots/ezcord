@@ -1,6 +1,6 @@
 declare module 'ezcord' {
     import { EventEmitter } from "events";
-    import { Client, Presence, User, MessageEmbed, GuildMember, TextChannel } from "discord.js";
+    import { Client, Presence, User, Message, MessageEmbed } from "discord.js";
     class EzcordClient extends EventEmitter {
         client: Client
         token: string
@@ -34,13 +34,6 @@ declare module 'ezcord' {
         sTitle(title: string): Embed
         sDescription(desc: string): Embed
         sFields(fields: Array<{ name: string, value: string }>): Embed
-    }
-    class Message {
-        author: User
-        text: string
-        member: GuildMember
-        client: Client
-        channel: TextChannel
     }
     interface ClientEvents {
         ready: []
