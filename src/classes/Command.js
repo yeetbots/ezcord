@@ -16,20 +16,24 @@ class Command {
     constructor(msg, bot) {
         /** The author of the message.
          * @memberof Command
+         * @type {User}
          */
         this.sender = msg.author
         /** The args provided.
          * @memberof Command
+         * @type {String[]}
          */
         // @ts-ignore
-        this.args = msg.content.slice(bot.prefix.length).split(/ +/)
+        this.args = msg.text.slice(bot.prefix.length).split(/ +/)
         /** The command provided.
          * @memberof Command
+         * @type {String}
          */
         // @ts-ignore
         this.cmd = this.args.shift().toLowerCase()
         /** The whole message as a Message object.
          * @memberof Command
+         * @type {Message}
          */
         this.msg = msg
     }
