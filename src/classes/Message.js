@@ -38,3 +38,4 @@ class Message {
         this.channel = msg.channel
     }
 }
+module.exports = Message

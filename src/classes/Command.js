@@ -1,4 +1,5 @@
-const { User, Message } = require('discord.js')
+const { User } = require('discord.js')
+const Message = require('./Message')
 const EzcordClient = require('./EzcordClient')
 const { Embed } = require('./Embed')
 
@@ -45,9 +46,13 @@ class Command {
      */
     respond(content, embed) {
         if(embed) {
-            return this.msg.channel.send(content, embed.djs)
+            var m = await this.msg.channel.send(content, embed.djs)
+            m = new Message(m)
+            return m;
         } else {
-            return this.msg.channel.send(content)
+            var m = await this.msg.channel.send(content)
+            m = new Message(m)
+            return m;
         }
     }
 
